@@ -4,6 +4,7 @@
 ## Requirements
 
 - Conda
+    - Jupyter Notebooks
 - PyTorch
 
 ## Setup
@@ -12,5 +13,7 @@
 
 ### In your Conda Environment
 
-2. Install pip
-3. run `pip install -r requirements.txt`
+2. Install Jupyter Notebooks
+    - run `conda install jupyter`
+3. Install pip
+    - run `pip install -r requirements.txt`
