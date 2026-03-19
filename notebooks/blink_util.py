@@ -45,3 +45,20 @@ def get_FoH(df, verbose=False):
 
     Fe_on_H = -5.038-5.394*P+1.345*phi31
     return Fe_on_H
+
+def Calc_R2(TrueValues, PredValues):
+    # https://en.wikipedia.org/wiki/Coefficient_of_determination
+    n = len(TrueValues)
+    x_sum = TrueValues.sum()
+    y_sum = PredValues.sum()
+    xy_sum = (TrueValues*PredValues).sum()
+    x2_sum = (TrueValues * TrueValues).sum()
+    y2_sum = (PredValues * PredValues).sum()
+
+    r_top = n*xy_sum - x_sum*y_sum
+    r2_bottom = (n*x2_sum - x_sum*x_sum)*(n*y2_sum - y_sum*y_sum)
+
+    if r2_bottom == 0:
+        return np.nan
+    else:
+        return (r_top * r_top)/r2_bottom
